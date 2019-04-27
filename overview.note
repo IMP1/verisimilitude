@@ -1,0 +1,84 @@
+# Untitled
+
+internal name: verisimilitude
+
+## Themes
+
+  * verb-emphasis for maximum **player expression**
+      - how will the player control this?
+      - typing out commands?
+
+  * minimal back-story for maximum **role-play opportunity**
+
+  * AI usage of same verbs for a **believable world**
+
+## Plot
+
+arrive at village as tax collector or some other representative of some 
+important person just before arrival, one of travelling contigent says that this 
+missison is special because of strange ongoings at village and that there is 
+some other purpose for you being there, to investigate and report back to some 
+important person this is just the opinion of this person, and is not true, but 
+it is presented early on as if it is from a reliable person
+
+if the player investigates there are plenty of things that can look suspicious 
+but are not. kinda like firewatch
+
+there's also plenty to do. people to meet, woods to explore, etc.
+
+
+## Systems
+
+**Thoughts on systems**
+
+Since NPCs can do the same things the player can do, and the player can 
+interrupt the activities of NPCs, can NPCs interrupt the player? How should 
+interrupting work?
+
+What systems *don't* use the interaction mechanics?
+  * Movement
+  * Dialog? 
+  * Combat?
+It would be nice to minimise these, as it makes them seem like minigames, and
+fit less into the world and the way the player expects to interact with it.
+
+Maybe these systems could be wrappers around the interaction mechanics?
+Combat would pause the game and be turn-based interactions, or maybe it 
+auto-pauses on combat initiation, but unpauses to actually perform actions.
+
+Dialog could present options which would just boil down to `SAY xyz-message` or
+`ASK xyz-question`.
+
+# World Simulation
+
+## Player Interaction
+
+Normal gameplay involves moving the player around, and performing actions.
+Perhaps the default mode is WASD to move, E to engage with someone, T to talk, and space to type commands.
+
+At any time the player can pause the game to type commands. These commands could
+have autocomplete to make the usability of this feature nicer.
+
+The affects of a player performing an action depends on the action, and the 
+object they are performing it on. For example, the player putting on a cloak 
+can only do so if the cloak is handleable and wearable (it is), and the player 
+has sufficient manipulation skills (they do). Otherwise it makes no sense to put
+on something that is not handleable. And it is impossible for something that 
+cannot manipulate things sufficiently to put on anything.
+
+## Dialog System
+
+A dialog system with branching dialog trees.
+The game is paused when the player is choosing what to say, but once they select
+it, the player says (and NPCs say) dialog in normal game time.
+
+A character can initiate conversation with the `talk` command.
+
+## Combat
+
+
+
+## Time (Day/Night)
+
+
+

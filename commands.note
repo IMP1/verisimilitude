@@ -1,0 +1,107 @@
+
+# Attributes
+
+## Creature
+  * mouth
+  * manipulation
+  * sight
+  * sentience
+  * movement
+## Item
+  * handleable
+  * fragile
+  * fluid
+  * edible
+  * legible
+  * wieldable/wielded
+  * wearable/worn
+  * container
+  * fireable
+  * rideable/ridden
+  * stowable/stowed
+  * open/closed
+  * door
+  * platform
+
+# Actions
+                                                            
+    Action      Args    Needs (subject)                     Needs (object_1 | object_2 | ...)
+
+  * eat         1       ( mouth 1 )                         [ edible ]
+  * drink       1       ( mouth 1 )                         [ fluid ]
+  * pick up     1       ( manipulation 1 )                  [ handleable ]
+  * drop        1       ( manipulation 1 )                  [ handleable ]
+  * throw       1*      ( manipulation 1 )                  [ handleable ]
+  * dip         2       ( manipulation 2 )                  [ handleable | fluid ]
+  * put on      1       ( manipulation 2 )                  [ handleable+wearable ]
+  * take off    1       ( manipulation 2 )                  [ handleable+worn ]
+  * read        1       ( sight 2, sentience 2 )            [ legible ]
+  * talk        1       ( mouth 2, sentience 1 )            [ -none- ]
+  * open        1       ( manipulation 2 )                  [ (container/door)+closed ]
+  * close       1       ( manipulation 2 )                  [ (container/door)+open ]
+  * shoot       1*      ( manipulation 3 )                  [ handleable+fireable ]
+  * get on      1       ( movement 4 )                      [ rideable/platform ]
+  * get into    1       ( movement 4 )                      [ container/ ]
+  * get off     1       ( movement 4 )                      [ ridden/platform ]
+  * search      1       ( sight 2 )                         [ -none- ]
+  * push        1       ( manipulation 1 )                  [ door/ ]
+  * pull        1       ( manipulation 1 )                  [ door/ ]
+  * ascend      1       ( movement 1 )                      [ stairs/ ]
+  * descend     1       ( movement 1 )                      [ stairs/ ]
+  * stow        2       ( manipulation 2 )                  [ handleable+stowable | container ]
+  * remove      2       ( manipulation 2 )                  [ handleable+stowed | container ]
+  * look        0*      ( sight 1 )                         [ -none- ]
+  * walk        0*      ( movement 1 )                      [ -none- ]
+  * run         0*      ( movement 2 )                      [ -none- ]
+  * sprint      0*      ( movement 3 )                      [ -none- ]
+  * inspect     1       ( sight 2, sentience 1 )            [ -none- ]
+  * knock       1       ( manipulation 1 )                  [ door/ ]
+  * give        2       ( manipulation 2, sentience 1 )     [ handleable; manipulation 1 ]
+  * take        2       ( manipulation 1 )                  [ handleable ]
+
+*also takes a position argument.
+
+# Items
+
+  * **apple**
+    eat, pick up, drop, throw, dip, put on, take off, talk, search, stow(1), remove
+  * **axe**
+    pick up, drop, throw, dip, put on, take off, talk, stow(1), remove
+  * **bow**
+    pick up, drop, throw, dip, talk, shoot, stow(1), remove
+  * **bucket**
+    pick up, drop, throw, dip, put on, take off, get into, search, stow(1), remove
+  * **cloak**
+    pick up, drop, throw, dip, put on, take off, stow(1), remove
+  * **door**
+    open, close, push, pull, knock
+  * **lantern**
+    pick up, drop, throw, stow(1), remove
+  * **seeds**
+    eat, pick up, drop, throw, stow(1), remove
+  * **backpack**
+    pick up, drop, throw, put on, take off, open, close, search, stow(1), stow(2), remove
+  * **letter**
+    eat, pick up, drop, throw, drop, read, stow(1), remove
+  * **ladder**
+    pick up, drop, throw, ascend, descend
+  * **wheelbarrow**
+    pick up, drop, push, stow(2),
+  * **barrel**
+    pick up, drop, throw, get into, stow(2)
+
+# Creatures
+
+  * **person**
+    mouth 3, sight 2, movement 4, manipulation 4, sentience 3-4
+  * **horse**
+    mouth 1, sight 1, movement 3, rideable
+  * **sheep**
+    mouth 1, sight 1, movement 2, 
+  * **wolf**
+    mouth 1, sight 2, movement 3, 
+  * **child**
+    mouth 2, sight 2, movement 3, manipulation 2, sentience 1-2
+  * **baby**
+    mouth 1, sight 2
+
