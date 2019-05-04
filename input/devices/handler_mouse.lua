@@ -1,3 +1,5 @@
+local input = require 'lib.input'
+
 local device_handler = {}
 
 local KEY_NAMES = {
@@ -23,6 +25,14 @@ local function get_device_info()
     return {
         id   = device_id,
         name = device_name,
+    }
+end
+
+function device_handler.get_info()
+    return {
+        count = 1,
+        ids   = {device_id},
+        names = {device_name},
     }
 end
 

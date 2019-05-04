@@ -16,6 +16,14 @@ local function get_device_info()
     }
 end
 
+function device_handler.get_info()
+    return {
+        count = 1,
+        ids   = {device_id},
+        names = {device_name},
+    }
+end
+
 function device_handler.get_state(device_id, key)
 
     local devicename = "keyboard"

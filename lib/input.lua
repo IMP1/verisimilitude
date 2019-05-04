@@ -109,6 +109,10 @@ function input.subscribe(love_event_name, func)
     end
 end
 
+function input.get_device(device_id)
+    return device_managers[id]
+end
+
 function input.add_input_scheme(scheme)
     table.insert(input_mapping_schemes, scheme)
 end
@@ -154,6 +158,8 @@ function input.get_state(device_id, state_name)
     --        maybe pass the context and key_id to the device manager? Or the scheme?
 
 end
+
+return input
 
 --[[ Ideas
 
@@ -228,4 +234,3 @@ states:
   * position
 
 --]]
-
