@@ -87,12 +87,16 @@ Schemes need to have the following properties:
 
 --]]
 
+input.actions = {
+    PRESS   = "press",
+    RELEASE = "release",
+    MOVE    = "move",
+}
+
 local next_device_id = 1
 local device_managers = {}
 
 local input_mapping_schemes = {}
-
-local current_context = nil
 
 function input.register_device(device_manager)
     local id = next_device_id
@@ -114,11 +118,22 @@ function input.get_device(device_id)
 end
 
 function input.add_input_scheme(scheme)
+    print("adding input scheme")
     table.insert(input_mapping_schemes, scheme)
 end
 
-function input.set_context(new_context)
-    current_context = new_context
+function input.remove_input_scheme(scheme)
+    local index = 0
+    for i, s in ipairs(input_mapping_schemes) do
+        if scheme == s then
+            index = i
+            break
+        end
+    end
+    if index > 0 then
+        print("removing input scheme")
+        table.remove(input_mapping_schemes, index)
+    end
 end
 
 -- To be used by Device Managers only, push standardised virtual input events.
